@@ -3,7 +3,7 @@ import { Star } from 'lucide-react';
 import { CLINIC } from '../data/clinicData';
 
 /** Logo de Google en sus cuatro colores. */
-const GoogleG: React.FC<{ className?: string }> = ({ className }) => (
+export const GoogleG: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 48 48" aria-hidden="true">
     <path
       fill="#EA4335"

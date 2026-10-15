@@ -47,6 +47,24 @@ export const BookingSection: React.FC = () => {
           <p className="text-base sm:text-lg text-pink-50">
             Completá estos datos y se arma el mensaje. El consultorio te responde para confirmar día y horario.
           </p>
+
+          <ol className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
+            {[
+              ['1', 'Completá tus datos', 'Nombre, qué necesitás y cuándo te queda cómodo.'],
+              ['2', 'Se abre WhatsApp', 'Te llevamos al chat con el mensaje ya armado.'],
+              ['3', 'Confirmamos tu turno', 'Te respondemos con día y horario.'],
+            ].map(([n, titulo, texto]) => (
+              <li key={n} className="flex items-start gap-3 rounded-2xl bg-white/15 border border-white/25 p-4">
+                <span className="shrink-0 w-8 h-8 rounded-full bg-white text-pink-700 font-extrabold flex items-center justify-center">
+                  {n}
+                </span>
+                <span>
+                  <span className="block font-bold text-white leading-tight">{titulo}</span>
+                  <span className="block text-sm text-pink-50 mt-0.5">{texto}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
         </div>
 
         <form

@@ -50,6 +50,22 @@ export const HIGHLIGHTS: Highlight[] = [
   { icon: 'calendar', title: 'Turnos rápidos', text: 'Confirmación vía WhatsApp' },
 ];
 
+export interface Review {
+  /** Nombre y inicial tal como figura en Google; null si el extracto no muestra autor. */
+  author: string | null;
+  text: string;
+}
+
+// Extractos textuales de opiniones públicas de la ficha de Google Maps (5 estrellas).
+export const REVIEWS: Review[] = [
+  {
+    author: 'Valeria G.',
+    text: 'Mi experiencia en el consultorio de Nati fue excelente. Destaco no solo el impecable profesionalismo del equipo, sino también la calidad humana en el trato, que hace toda la diferencia.',
+  },
+  { author: null, text: 'Destaco la puntualidad en la atención y el seguimiento al paciente!' },
+  { author: null, text: 'Hermoso lugar, disponibilidad de turnos y buenísima atención.' },
+];
+
 export interface DentalService {
   id: string;
   name: string;

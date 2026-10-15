@@ -13,7 +13,15 @@ export const Footer: React.FC = () => {
               src={`${import.meta.env.BASE_URL}images/logo-natali.png`}
               alt={`Logo de ${CLINIC.professional.replace(/^la /, '')}`}
               loading="lazy"
-              className="w-36 h-auto rounded-2xl bg-white p-2 shadow-md"
+              className="w-44 h-auto -ml-4"
+              style={{
+                WebkitMaskImage:
+                  'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent), linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent)',
+                maskImage:
+                  'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent), linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent)',
+                WebkitMaskComposite: 'source-in',
+                maskComposite: 'intersect',
+              }}
             />
             <div className="text-lg font-bold text-pink-950">{CLINIC.name}</div>
             <p className="text-pink-900 leading-relaxed">

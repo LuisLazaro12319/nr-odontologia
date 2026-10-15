@@ -91,15 +91,18 @@ export const Navbar: React.FC = () => {
             onClick={irArriba}
             className="flex items-center gap-3 text-pink-950 transition-opacity hover:opacity-95 shrink-0"
           >
-            <div className="w-11 h-11 rounded-full bg-white border border-white/80 flex items-center justify-center shadow-md overflow-hidden shrink-0">
-              <img
-                src={`${import.meta.env.BASE_URL}images/logo-diente.png`}
-                alt={`Logo de ${CLINIC.name}`}
-                width={36}
-                height={36}
-                className="w-9 h-9 object-contain"
-              />
-            </div>
+            {/* Logo sin marco: el blanco se difumina hacia el degradado del menú, sin línea divisoria. */}
+            <img
+              src={`${import.meta.env.BASE_URL}images/logo-diente.png`}
+              alt={`Logo de ${CLINIC.name}`}
+              width={56}
+              height={56}
+              className="w-14 h-14 -my-2 -mr-1 object-contain shrink-0"
+              style={{
+                WebkitMaskImage: 'radial-gradient(closest-side, #000 62%, transparent 100%)',
+                maskImage: 'radial-gradient(closest-side, #000 62%, transparent 100%)',
+              }}
+            />
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-pink-950 leading-none">
                 {CLINIC.name}

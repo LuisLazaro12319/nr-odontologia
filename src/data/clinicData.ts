@@ -60,7 +60,7 @@ export interface Review {
 export const REVIEWS: Review[] = [
   {
     author: 'Valeria G.',
-    text: 'Mi experiencia en el consultorio de Nati fue excelente. Destaco no solo el impecable profesionalismo del equipo, sino también la calidad humana en el trato, que hace toda la diferencia.',
+    text: 'Mi experiencia en el consultorio de Nati fue excelente. Destaco no solo el impecable profesionalismo del equipo, sino también la calidad humana en el trato, que hace toda la diferencia. Super recomendables para quienes busquen atención de primera en un ambiente de confianza. ¡Sin dudas, las mejores!',
   },
   { author: null, text: 'Destaco la puntualidad en la atención y el seguimiento al paciente!' },
   { author: null, text: 'Hermoso lugar, disponibilidad de turnos y buenísima atención.' },

@@ -1,11 +1,64 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ExternalLink, Quote, Star } from 'lucide-react';
 import { CLINIC, REVIEWS } from '../data/clinicData';
 import { GoogleG } from './GoogleBadge';
 
+/** Velocidad de la cinta (píxeles por segundo) y cantidad de copias de la lista para que el recorrido no tenga corte. */
+const VELOCIDAD_CINTA = 34;
+const COPIAS = 4;
+
 /** Opiniones reales de pacientes, tomadas de la ficha pública de Google del consultorio. */
 export const ReviewsSection: React.FC = () => {
+  const pista = useRef<HTMLUListElement>(null);
+  const pausada = useRef(false);
+  const temporizador = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    const el = pista.current;
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let cuadro = 0;
+    let ultimo = performance.now();
+    let pos = el.scrollLeft;
+
+    const avanzar = (ahora: number) => {
+      const dt = Math.min(ahora - ultimo, 100);
+      ultimo = ahora;
+      // Si la persona la movió con el dedo o el mouse, seguimos desde donde la dejó.
+      if (Math.abs(el.scrollLeft - pos) > 1.5) pos = el.scrollLeft;
+      if (!pausada.current && el.scrollWidth > el.clientWidth) {
+        pos += (VELOCIDAD_CINTA * dt) / 1000;
+        // Largo exacto de una copia de la lista: distancia entre la primera tarjeta y la primera de la copia siguiente.
+        const sig = el.children[REVIEWS.length] as HTMLElement | undefined;
+        const primera = el.children[0] as HTMLElement | undefined;
+        const unidad = sig && primera ? sig.offsetLeft - primera.offsetLeft : el.scrollWidth / COPIAS;
+        if (unidad > 0 && pos >= unidad) pos -= unidad;
+        el.scrollLeft = pos;
+      }
+      cuadro = requestAnimationFrame(avanzar);
+    };
+    cuadro = requestAnimationFrame(avanzar);
+    return () => {
+      cancelAnimationFrame(cuadro);
+      window.clearTimeout(temporizador.current);
+    };
+  }, []);
+
   if (REVIEWS.length === 0) return null;
+
+  const pausar = () => {
+    window.clearTimeout(temporizador.current);
+    pausada.current = true;
+  };
+  const retomar = (espera = 1500) => {
+    window.clearTimeout(temporizador.current);
+    temporizador.current = window.setTimeout(() => {
+      pausada.current = false;
+    }, espera);
+  };
+
+  const copias = Array.from({ length: COPIAS }, (_, c) => REVIEWS.map((r) => ({ r, c })));
 
   return (
     <section
@@ -16,8 +69,8 @@ export const ReviewsSection: React.FC = () => {
         aria-hidden="true"
         className="absolute -top-24 -left-16 w-72 h-72 rounded-full bg-pink-100/70 blur-3xl pointer-events-none"
       />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+      <div className="relative">
+        <div className="text-center max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
             <span className="bg-gradient-to-r from-pink-700 via-pink-600 to-rose-500 bg-clip-text text-transparent">
               Lo que dicen nuestros pacientes
@@ -30,16 +83,31 @@ export const ReviewsSection: React.FC = () => {
           </p>
         </div>
 
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {REVIEWS.map((r) => (
+        {/* Cinta que avanza sola; se pausa al tocarla o pasar el mouse y se puede arrastrar. */}
+        <ul
+          ref={pista}
+          onTouchStart={pausar}
+          onTouchEnd={() => retomar()}
+          onTouchCancel={() => retomar()}
+          onMouseEnter={pausar}
+          onMouseLeave={() => retomar(300)}
+          aria-label="Opiniones de pacientes"
+          className="no-scrollbar flex gap-5 overflow-x-auto px-4 py-6"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to right, transparent, #000 5%, #000 95%, transparent)',
+            maskImage: 'linear-gradient(to right, transparent, #000 5%, #000 95%, transparent)',
+          }}
+        >
+          {copias.flat().map(({ r, c }, i) => (
             <li
-              key={r.text}
-              className="relative flex flex-col rounded-3xl bg-white border border-pink-100 shadow-lg shadow-pink-900/5 p-6 sm:p-7"
+              key={`${c}-${i}`}
+              aria-hidden={c > 0 || undefined}
+              className="relative flex flex-col shrink-0 w-[78vw] min-w-[260px] max-w-[360px] rounded-3xl bg-white border border-pink-100 shadow-lg shadow-pink-900/5 p-6"
             >
               <Quote className="absolute top-5 right-5 w-8 h-8 text-pink-100" aria-hidden="true" />
               <div className="flex items-center gap-0.5 text-amber-400 mb-4" aria-label="5 de 5 estrellas">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <Star key={i} className="w-5 h-5 fill-current" strokeWidth={0} />
+                {[0, 1, 2, 3, 4].map((s) => (
+                  <Star key={s} className="w-5 h-5 fill-current" strokeWidth={0} />
                 ))}
               </div>
               <p className="text-slate-700 leading-relaxed mb-6 flex-1">&ldquo;{r.text}&rdquo;</p>
@@ -54,7 +122,7 @@ export const ReviewsSection: React.FC = () => {
           ))}
         </ul>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8 px-4">
           <a
             href={CLINIC.mapsUrl}
             target="_blank"

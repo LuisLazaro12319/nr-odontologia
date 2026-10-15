@@ -38,7 +38,7 @@ const Estrellas: React.FC<{ valor: number }> = ({ valor }) => {
     <span className="relative inline-flex" aria-hidden="true">
       {fila('text-slate-300')}
       <span className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${porcentaje}%` }}>
-        {fila('text-amber-400')}
+        {fila('text-rose-400')}
       </span>
     </span>
   );

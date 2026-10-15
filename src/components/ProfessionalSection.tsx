@@ -22,10 +22,10 @@ export const ProfessionalSection: React.FC = () => {
   };
 
   return (
-    <section id="profesional" className="relative py-16 lg:py-24 bg-white border-b border-amber-100 overflow-hidden">
+    <section id="profesional" className="relative py-16 lg:py-24 bg-white border-b border-rose-100 overflow-hidden">
       <div
         aria-hidden="true"
-        className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-amber-100/70 blur-3xl pointer-events-none"
+        className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-rose-100/70 blur-3xl pointer-events-none"
       />
       <div
         aria-hidden="true"
@@ -36,11 +36,11 @@ export const ProfessionalSection: React.FC = () => {
         {/* Título de la sección, centrado y arriba */}
         <div className="text-center mb-6 lg:mb-8">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-700 via-pink-600 to-rose-500 bg-clip-text text-transparent">
               Nosotros
             </span>
           </h2>
-          <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
+          <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-pink-500 to-rose-400" />
         </div>
 
         {/* Carrusel: una tarjeta por persona, todas con el mismo diseño.
@@ -63,14 +63,14 @@ export const ProfessionalSection: React.FC = () => {
                   <div className="lg:col-span-5">
                     <div className="max-w-md mx-auto">
                       <p className="text-center mb-5">
-                        <span className="inline-block px-3.5 py-1.5 rounded-full bg-orange-50 text-orange-700 border border-amber-200 text-xs font-bold uppercase tracking-wider">
+                        <span className="inline-block px-3.5 py-1.5 rounded-full bg-pink-50 text-pink-700 border border-rose-200 text-xs font-bold uppercase tracking-wider">
                           {m.role}
                         </span>
                       </p>
 
                       <div className="relative">
-                        <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-orange-400 via-amber-300 to-orange-600 opacity-80 blur-sm" />
-                        <div className="relative rounded-[1.75rem] overflow-hidden bg-amber-100 shadow-2xl shadow-orange-900/20 aspect-square">
+                        <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-pink-400 via-rose-300 to-pink-600 opacity-80 blur-sm" />
+                        <div className="relative rounded-[1.75rem] overflow-hidden bg-rose-100 shadow-2xl shadow-pink-900/20 aspect-square">
                           {foto ? (
                             <img
                               src={foto}
@@ -79,19 +79,19 @@ export const ProfessionalSection: React.FC = () => {
                               className="w-full h-full object-cover"
                             />
                           ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-orange-50 to-amber-100 flex flex-col items-center justify-center gap-2 text-orange-400">
-                              <div className="w-24 h-24 rounded-full border-2 border-dashed border-orange-300 flex items-center justify-center">
+                            <div className="w-full h-full bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center gap-2 text-pink-400">
+                              <div className="w-24 h-24 rounded-full border-2 border-dashed border-pink-300 flex items-center justify-center">
                                 <UserRound className="w-11 h-11" />
                               </div>
                               <span className="text-xs font-semibold">Foto del integrante</span>
                             </div>
                           )}
                         </div>
-                        <div className="relative -mt-8 mx-6 rounded-2xl bg-white shadow-xl shadow-orange-900/10 border border-amber-100 px-5 py-4 text-center">
+                        <div className="relative -mt-8 mx-6 rounded-2xl bg-white shadow-xl shadow-pink-900/10 border border-rose-100 px-5 py-4 text-center">
                           <h3 className={`text-xl font-extrabold ${m.name ? 'text-slate-900' : 'text-slate-400 italic'}`}>
                             {m.name ?? 'Nombre y apellido'}
                           </h3>
-                          <p className="text-sm text-orange-700 font-semibold mt-0.5">
+                          <p className="text-sm text-pink-700 font-semibold mt-0.5">
                             {m.name ? `${m.role} · ${CLINIC.name}` : CLINIC.name}
                           </p>
                         </div>
@@ -104,7 +104,7 @@ export const ProfessionalSection: React.FC = () => {
                       <>
                         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
                           Atención personalizada en{' '}
-                          <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+                          <span className="bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
                             {CLINIC.locality}
                           </span>
                         </h3>
@@ -118,15 +118,15 @@ export const ProfessionalSection: React.FC = () => {
                             href={CLINIC.mapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100 transition-colors"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-rose-50 text-rose-900 border border-rose-200 hover:bg-rose-100 transition-colors"
                           >
-                            <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                            <Star className="w-4 h-4 text-rose-500 fill-rose-500" />
                             <span>
                               {CLINIC.googleRating} en Google ({CLINIC.googleReviews} opiniones)
                             </span>
                           </a>
-                          <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-orange-50 text-orange-900 border border-amber-200">
-                            <MapPin className="w-4 h-4 text-orange-600" />
+                          <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-pink-50 text-pink-900 border border-rose-200">
+                            <MapPin className="w-4 h-4 text-pink-600" />
                             <span>
                               {CLINIC.street}, {CLINIC.locality}
                             </span>
@@ -136,7 +136,7 @@ export const ProfessionalSection: React.FC = () => {
                     ) : (
                       <>
                         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-                          <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+                          <span className="bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
                             {m.role}
                           </span>
                         </h3>
@@ -150,7 +150,7 @@ export const ProfessionalSection: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => irA(1)}
-                        className="hidden md:inline-flex items-center gap-1.5 px-5 py-3.5 text-sm font-bold text-orange-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 rounded-xl transition-colors cursor-pointer"
+                        className="hidden md:inline-flex items-center gap-1.5 px-5 py-3.5 text-sm font-bold text-pink-800 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-xl transition-colors cursor-pointer"
                       >
                         <span>Conocé al equipo</span>
                         <ChevronRight className="w-4 h-4" />
@@ -171,7 +171,7 @@ export const ProfessionalSection: React.FC = () => {
               onClick={() => irA(activo - 1)}
               disabled={activo === 0}
               aria-label="Anterior"
-              className="w-10 h-10 rounded-full border border-amber-200 bg-white text-orange-800 flex items-center justify-center hover:bg-amber-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+              className="w-10 h-10 rounded-full border border-rose-200 bg-white text-pink-800 flex items-center justify-center hover:bg-rose-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -185,7 +185,7 @@ export const ProfessionalSection: React.FC = () => {
                   aria-label={m.name ?? m.role}
                   onClick={() => irA(i)}
                   className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                    activo === i ? 'w-8 bg-orange-600' : 'w-2.5 bg-amber-200 hover:bg-amber-300'
+                    activo === i ? 'w-8 bg-pink-600' : 'w-2.5 bg-rose-200 hover:bg-rose-300'
                   }`}
                 />
               ))}
@@ -195,7 +195,7 @@ export const ProfessionalSection: React.FC = () => {
               onClick={() => irA(activo + 1)}
               disabled={activo === TEAM.length - 1}
               aria-label="Siguiente"
-              className="w-10 h-10 rounded-full border border-amber-200 bg-white text-orange-800 flex items-center justify-center hover:bg-amber-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+              className="w-10 h-10 rounded-full border border-rose-200 bg-white text-pink-800 flex items-center justify-center hover:bg-rose-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

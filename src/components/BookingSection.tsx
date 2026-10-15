@@ -32,26 +32,26 @@ export const BookingSection: React.FC = () => {
   };
 
   const campo =
-    'w-full px-4 py-3 text-sm text-slate-900 bg-orange-50/60 border border-orange-100 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-colors';
+    'w-full px-4 py-3 text-sm text-slate-900 bg-pink-50/60 border border-pink-100 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-pink-400 focus:border-pink-400 transition-colors';
 
   return (
     <section
       id="turnos"
-      className="py-20 lg:py-24 bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500 border-b border-orange-200"
+      className="py-20 lg:py-24 bg-gradient-to-br from-pink-600 via-pink-500 to-rose-500 border-b border-pink-200"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 text-white">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3">
             Pedí tu turno por WhatsApp
           </h2>
-          <p className="text-base sm:text-lg text-orange-50">
+          <p className="text-base sm:text-lg text-pink-50">
             Completá estos datos y se arma el mensaje. El consultorio te responde para confirmar día y horario.
           </p>
         </div>
 
         <form
           onSubmit={enviar}
-          className="bg-white rounded-3xl shadow-2xl shadow-orange-950/20 p-6 sm:p-9 space-y-5"
+          className="bg-white rounded-3xl shadow-2xl shadow-pink-950/20 p-6 sm:p-9 space-y-5"
         >
           <div>
             <label htmlFor="nombre" className="block text-sm font-semibold text-slate-800 mb-1.5">

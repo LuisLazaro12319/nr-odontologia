@@ -68,7 +68,7 @@ export interface TeamMember {
 
 // Equipo de trabajo del consultorio. Completar nombre y foto de cada integrante.
 // Una reseña de Google agradece también a "Cande": sumarla cuando el consultorio confirme nombre y rol.
-export const TEAM: TeamMember[] = [{ role: 'Odontóloga', name: 'Od. Natali Rodríguez', photo: null }];
+export const TEAM: TeamMember[] = [{ role: 'Odontóloga', name: 'Od. Natali Rodríguez', photo: 'images/natali-rodriguez.jpg' }];
 
 // A CONFIRMAR con el consultorio: lista de ejemplo para la demo (su Instagram indica "Odontología y estética");
 // se quita lo que no realicen.

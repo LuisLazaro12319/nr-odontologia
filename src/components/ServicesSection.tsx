@@ -19,9 +19,9 @@ import { CLINIC, SERVICES, whatsappUrl, type DentalService } from '../data/clini
 const ESTILOS: Record<DentalService['icon'], { icon: React.ReactNode; badge: string; barra: string; link: string }> = {
   stethoscope: {
     icon: <Stethoscope className="w-6 h-6 text-white" />,
-    badge: 'from-orange-500 to-orange-600',
-    barra: 'from-orange-500 to-orange-600',
-    link: 'text-orange-700 hover:text-orange-900',
+    badge: 'from-pink-500 to-pink-600',
+    barra: 'from-pink-500 to-pink-600',
+    link: 'text-pink-700 hover:text-pink-900',
   },
   sparkles: {
     icon: <Sparkles className="w-6 h-6 text-white" />,
@@ -31,14 +31,14 @@ const ESTILOS: Record<DentalService['icon'], { icon: React.ReactNode; badge: str
   },
   layers: {
     icon: <Layers className="w-6 h-6 text-white" />,
-    badge: 'from-amber-400 to-orange-500',
-    barra: 'from-amber-400 to-orange-500',
-    link: 'text-orange-600 hover:text-orange-800',
+    badge: 'from-rose-400 to-pink-500',
+    barra: 'from-rose-400 to-pink-500',
+    link: 'text-pink-600 hover:text-pink-800',
   },
   shield: {
     icon: <ShieldCheck className="w-6 h-6 text-white" />,
-    badge: 'from-rose-500 to-amber-500',
-    barra: 'from-rose-500 to-amber-500',
+    badge: 'from-rose-500 to-rose-500',
+    barra: 'from-rose-500 to-rose-500',
     link: 'text-rose-600 hover:text-rose-800',
   },
   activity: {
@@ -49,15 +49,15 @@ const ESTILOS: Record<DentalService['icon'], { icon: React.ReactNode; badge: str
   },
   smile: {
     icon: <Smile className="w-6 h-6 text-white" />,
-    badge: 'from-amber-400 to-orange-500',
-    barra: 'from-amber-400 to-orange-500',
-    link: 'text-amber-700 hover:text-orange-900',
+    badge: 'from-rose-400 to-pink-500',
+    barra: 'from-rose-400 to-pink-500',
+    link: 'text-rose-700 hover:text-pink-900',
   },
   crown: {
     icon: <Crown className="w-6 h-6 text-white" />,
-    badge: 'from-yellow-400 to-amber-500',
-    barra: 'from-yellow-400 to-amber-500',
-    link: 'text-amber-700 hover:text-amber-900',
+    badge: 'from-yellow-400 to-rose-500',
+    barra: 'from-yellow-400 to-rose-500',
+    link: 'text-rose-700 hover:text-rose-900',
   },
   anchor: {
     icon: <Anchor className="w-6 h-6 text-white" />,
@@ -67,9 +67,9 @@ const ESTILOS: Record<DentalService['icon'], { icon: React.ReactNode; badge: str
   },
   gem: {
     icon: <Gem className="w-6 h-6 text-white" />,
-    badge: 'from-orange-400 to-orange-500',
-    barra: 'from-orange-400 to-orange-500',
-    link: 'text-orange-700 hover:text-orange-900',
+    badge: 'from-pink-400 to-pink-500',
+    barra: 'from-pink-400 to-pink-500',
+    link: 'text-pink-700 hover:text-pink-900',
   },
 };
 
@@ -143,7 +143,7 @@ const CintaServicios: React.FC = () => {
           <div
             key={`${service.id}-${i}`}
             aria-hidden={copia || undefined}
-            className="relative shrink-0 w-[46vw] min-w-[158px] max-w-[210px] bg-white rounded-2xl border border-slate-100 p-3.5 flex flex-col justify-between shadow-md shadow-orange-900/5 overflow-hidden"
+            className="relative shrink-0 w-[46vw] min-w-[158px] max-w-[210px] bg-white rounded-2xl border border-slate-100 p-3.5 flex flex-col justify-between shadow-md shadow-pink-900/5 overflow-hidden"
           >
             <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${e.barra}`} />
             <div>
@@ -211,7 +211,7 @@ const GrillaServicios: React.FC = () => {
                 return (
                   <div
                     key={service.id}
-                    className="group relative bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between shadow-md shadow-orange-900/5 hover:shadow-xl hover:shadow-orange-900/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                    className="group relative bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between shadow-md shadow-pink-900/5 hover:shadow-xl hover:shadow-pink-900/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
                     <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${e.barra}`} />
                     <div className="flex items-start gap-4">
@@ -252,7 +252,7 @@ const GrillaServicios: React.FC = () => {
             onClick={() => irA(activa - 1)}
             disabled={activa === 0}
             aria-label="Tratamientos anteriores"
-            className="w-10 h-10 rounded-full border border-amber-200 bg-white text-orange-800 flex items-center justify-center hover:bg-amber-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-full border border-rose-200 bg-white text-pink-800 flex items-center justify-center hover:bg-rose-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -266,7 +266,7 @@ const GrillaServicios: React.FC = () => {
                 aria-label={`Página ${i + 1}`}
                 onClick={() => irA(i)}
                 className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                  activa === i ? 'w-8 bg-orange-600' : 'w-2.5 bg-amber-200 hover:bg-amber-300'
+                  activa === i ? 'w-8 bg-pink-600' : 'w-2.5 bg-rose-200 hover:bg-rose-300'
                 }`}
               />
             ))}
@@ -276,7 +276,7 @@ const GrillaServicios: React.FC = () => {
             onClick={() => irA(activa + 1)}
             disabled={activa === paginas.length - 1}
             aria-label="Más tratamientos"
-            className="w-10 h-10 rounded-full border border-amber-200 bg-white text-orange-800 flex items-center justify-center hover:bg-amber-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-full border border-rose-200 bg-white text-pink-800 flex items-center justify-center hover:bg-rose-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -290,20 +290,20 @@ export const ServicesSection: React.FC = () => {
   return (
     <section
       id="tratamientos"
-      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-orange-50 via-white to-amber-50 border-b border-amber-100"
+      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-pink-50 via-white to-rose-50 border-b border-rose-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título con el mismo estilo que "Nosotros": grande, centrado y con degradado */}
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-orange-700 via-orange-600 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-700 via-pink-600 to-rose-500 bg-clip-text text-transparent">
               Tratamientos
             </span>
           </h2>
-          <div className="mx-auto mt-4 mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
+          <div className="mx-auto mt-4 mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-pink-500 to-rose-400" />
           <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-3">
             Lo que podemos hacer por tu{' '}
-            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
               salud bucal
             </span>
           </h3>
